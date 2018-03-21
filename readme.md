@@ -32,16 +32,24 @@ Useful plugins that I use while developing a new WordPress project.
 - Gulp is setup for a lot of things, including uglifying JavaScript and compiling SASS
 - Download the repository and type `npm install` (or `sudo npm install`) while within the `themes/starter-theme` folder to install the necessary Gulp packages
 
-### 3. Gulp Tasks
+#### 3. Gulp Tasks
 
 From the command line, type any of the following to perform an action:
 
 `gulp watch` - Automatically handle changes to CSS, JS, SVGs, and image sprites. Also kicks off BrowserSync.
+
 `gulp icons` - Minify, concatenate, and clean SVG icons.
+
 `gulp i18n` - Scan the theme and create a POT file.
+
 `gulp sass:lint` - Run Sass against WordPress code standards.
+
 `gulp js:lint` - Run Javascript against WordPress code standards.
+
 `gulp scripts` - Concatenate and minify javascript files.
+
 `gulp sprites` - Generate an image sprite and the associated Sass (sprite.png).
+
 `gulp styles` - Compile, prefix, combine media queries, and minify CSS files.
+
 `gulp` - Runs the following tasks at the same time: i18n, icons, scripts, styles, sprites.
