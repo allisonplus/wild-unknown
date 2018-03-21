@@ -1,0 +1,55 @@
+
+###Theme###
+
+assets/bower_components/bourbon/
+assets/bower_components/neat/
+.idea/
+compass_app_log.txt
+.AppleDouble
+.LSOverride
+
+
+###Wordpress###
+
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+wp-config.php
+blogs.dir/
+upgrade/
+uploads/
+upgrade/
+languages/
+
+###SublimeText###
+
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+.DS_Store
+
+###SASS###
+
+.sass-cache
+*.css.map
+.DS_Store
+
+### ignore ###
+node_modules/
+
+###Premium Plugins###
+
+plugins/advanced-custom-fields-pro
+mu-plugins/starter-theme-functionality/advanced-custom-fields-pro
