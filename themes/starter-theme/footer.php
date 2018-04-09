@@ -18,6 +18,7 @@
 
 			<div class="site-info">
 				<?php starter_theme_do_copyright_text(); ?>
+				<?php starter_theme_do_build_text(); ?>
 			</div>
 
 		</div><!-- .wrap -->

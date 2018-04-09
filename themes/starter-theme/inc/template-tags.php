@@ -341,6 +341,15 @@ function starter_theme_do_copyright_text() {
 }
 
 /**
+ * Echo build text for dev info.
+ */
+function starter_theme_do_build_text() {
+
+	// Echo the text.
+	echo '<div class="dev-info">' . esc_html( 'Built with ', 'starter-theme' ) . '<span class="heart">&#9829; </span>' . esc_html( 'by ', 'starter-theme' ) . '<a class="dev-link" href="' . esc_url('http://www.allisontarr.com', 'starter-theme') . '">Allison Tarr</a></div>'; // WPCS: XSS OK.
+}
+
+/**
  * Build social sharing icons.
  *
  * @return string
