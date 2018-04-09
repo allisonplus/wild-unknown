@@ -16,6 +16,8 @@
 	<footer class="site-footer">
 		<div class="wrap">
 
+			<?php echo starter_theme_get_footer_social_links(); // WPCS: XSS OK. ?>
+
 			<div class="site-info">
 				<?php
 					starter_theme_do_copyright_text();

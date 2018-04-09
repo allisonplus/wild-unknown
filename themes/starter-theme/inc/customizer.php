@@ -20,8 +20,24 @@ function starter_theme_customize_register( $wp_customize ) {
 		'starter_theme_social_links_section',
 		array(
 			'title'       => esc_html__( 'Social Links', 'starter-theme' ),
-			'description' => esc_html__( 'These are the settings for social links. Please limit the number of social links to 5.', 'starter-theme' ),
+			'description' => esc_html__( 'These are the settings for social links. Please limit the number of social links to 3.', 'starter-theme' ),
 			'priority'    => 90,
+		)
+	);
+
+	// Add our Contact Email field.
+	$wp_customize->add_setting(
+		'starter_theme_email_link',
+		array(
+			'default' => '',
+		)
+	);
+	$wp_customize->add_control(
+		'starter_theme_email_link',
+		array(
+			'label'   => esc_html__( 'Email', 'starter-theme' ),
+			'section' => 'starter_theme_social_links_section',
+			'type'    => 'email',
 		)
 	);
 
@@ -34,7 +50,7 @@ function starter_theme_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'starter_theme_' . $network . '_link',
 			array(
-				'default' => '',
+				'default'           => '',
 				'sanitize_callback' => 'starter_theme_sanitize_customizer_url',
 			)
 		);

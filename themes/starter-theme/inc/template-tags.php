@@ -346,7 +346,7 @@ function starter_theme_do_copyright_text() {
 function starter_theme_do_build_text() {
 
 	// Echo the text.
-	echo '<div class="dev-info">' . esc_html( 'Built with ', 'starter-theme' ) . '<span class="heart">&#9829; </span>' . esc_html( 'by ', 'starter-theme' ) . '<a class="dev-link" href="' . esc_url('http://www.allisontarr.com', 'starter-theme') . '">Allison Tarr</a></div>'; // WPCS: XSS OK.
+	echo '<div class="dev-info">' . esc_html( 'Built with ', 'starter-theme' ) . '<span class="heart">&#9829; </span>' . esc_html( 'by ', 'starter-theme' ) . '<a class="dev-link" href="' . esc_url( 'http://www.allisontarr.com', 'starter-theme' ) . '">Allison Tarr</a></div>'; // WPCS: XSS OK.
 }
 
 /**
@@ -395,7 +395,7 @@ function starter_theme_get_social_share() {
  * Echo social sharing icons.
  */
 function starter_theme_do_social_share() {
-	echo starter_theme_get_social_share();
+	echo starter_theme_get_social_share(); // WPCS: XSS OK.
 }
 
 /**
@@ -419,4 +419,46 @@ function starter_theme_do_mobile_navigation_menu() {
 		?>
 	</nav>
 <?php
+}
+
+
+/**
+ * Social links for the footer.
+ */
+function starter_theme_get_footer_social_links() {
+
+	// Set an array of social networks.
+	$social_networks = array( 'twitter', 'facebook', 'instagram' );
+	$email = get_theme_mod( 'starter_theme_email_link' );
+	$icon_email = get_stylesheet_directory_uri() . '/assets/images/svg-icons/social-envelope.svg';
+
+	ob_start(); ?>
+
+	<ul class="social-networks">
+
+	<?php // If there's no email, don't make this <li> in the first place .?>
+	<?php if ( ! empty( $email ) ) : ?>
+		<li class="social-network email">
+			<a href="mailto:<?php echo esc_attr( $email ); ?>">
+				<img src="<?php echo esc_url( $icon_email ); ?>" alt="">
+			</a>
+		</li>
+	<?php endif; ?>
+
+	<?php // Continue <li>'s with rest of social networks provided. ?>
+	<?php foreach ( $social_networks as $network ) :
+
+		$link_value = get_theme_mod( 'starter_theme_' . $network . '_link' ); ?>
+
+		<?php if ( ! empty( $link_value ) ) : ?>
+		<li class="social-network <?php echo $network; // WPCS: XSS OK. ?>">
+			<a target="_blank" href="<?php echo esc_url( get_theme_mod( 'starter_theme_' . $network . '_link' ) ); ?>">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/svg-icons/social-' . $network . '.svg' ); ?>" alt="">
+			</a>
+		</li>
+		<?php endif; ?>
+	<?php endforeach; ?>
+	</ul><!-- .social-networks -->
+	<?php
+	return ob_get_clean();
 }
