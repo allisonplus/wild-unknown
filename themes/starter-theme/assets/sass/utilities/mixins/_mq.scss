@@ -8,7 +8,7 @@
 ///
 /// @example - css Output
 ///   @media and screen (max-width: $tablet-portrait)
-@mixin media($min, $max:null) {
+@mixin media($min, $max: null) {
 
 	// Create the media query.
 	@if $min == null {
